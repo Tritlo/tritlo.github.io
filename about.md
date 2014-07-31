@@ -4,7 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is my personal website, generated using Jekyll, and served via nginx on
-a Raspberry Pi.
+This is my personal website, generated using Jekyll, and served via github.
 
 This is the base Jekyll theme.

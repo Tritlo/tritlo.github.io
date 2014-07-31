@@ -2,7 +2,7 @@
 title: mpg.is
 email: mpg@mpg.is
 description: "Matthías Páll Gissurarson's personal website"
-baseurl: "mpg.is"
+baseurl: "/mpg.is"
 url: "https://mpg.is"
 twitter_username: Tritlo
 github_username:  Tritlo

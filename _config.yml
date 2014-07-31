@@ -1,0 +1,14 @@
+# Site settings
+title: mpg.is
+email: mpg@mpg.is
+description: "Matthías Páll Gissurarson's personal website"
+baseurl: ""
+url: "https://mpg.is"
+twitter_username: Tritlo
+github_username:  Tritlo
+timezone: Atlantic/Reykjavik
+encoding: utf-8
+
+# Build settings
+markdown: kramdown
+permalink: pretty

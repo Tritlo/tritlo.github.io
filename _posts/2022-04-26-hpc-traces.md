@@ -66,5 +66,6 @@ of what was evaluated, and can be very helpful for tools like [PropR](https://gi
 The Progress
 ---
 Unfortunately, I'm still hacking it together and don't have any results to show
-yet (running a compiled program with the change gives a segmentation fault 😅😅😅),
-but hopefully I'll get it working soon. Until next time!
+yet... running a compiled program with the change gives a segmentation fault 😅😅😅.
+Hopefully I'll get it working soon, here's the [WIP branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks)
+(not on GitLab yet, it would be too awkward 😅). Until next time!

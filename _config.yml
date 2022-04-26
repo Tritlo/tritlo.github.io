@@ -3,6 +3,7 @@ title: Matti says
 logo: /assets/img/logo.png
 description: Matti's thoughts on programming, philosophy and life in general
 author: Matti
+username: tritlo
 timezone: Europe/Stockholm
 highlighter: rouge
 kramdown:

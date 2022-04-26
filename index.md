@@ -1,3 +1,7 @@
+---
+classes: wide
+---
+
 Welcome to Matti says!
 ===
 
@@ -5,7 +9,7 @@ A collection of stuff Matti has said. Not much to it yet, but it'll grow!
 
 Posts
 ---
-### [2022-04-26 Revival](/posts/2022/04/26/revival.html)
+### [2022-04-26: Revival](/posts/2022/04/26/revival.html)
 
 Papers
 ---

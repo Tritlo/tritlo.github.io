@@ -13,7 +13,7 @@ Papers
 ### 2022
 + [PropR: Property-Based Automatic Program Repair](https://mpg.is/papers/gissurarson2022propr.pdf)
 
-(ICSE '22)
+  (ICSE '22)
 + [The Hole Story: Type-Directed Synthesis and Repair](https://mpg.is/papers/gissurarson2022licentiate.pdf) [[Talk]](https://youtu.be/AClturcbDOk)
 
  (Licentiate thesis)
@@ -32,10 +32,10 @@ Papers
 + [Suggesting Valid Hole Fits for Typed-Holes (Experience Report)](https://mpg.is/papers/gissurarson2018suggesting.pdf)
   [[Slides]](https://mpg.is/papers/gissurarson2018suggesting-talk.pdf)
 
-(Haskell '18)
+  (Haskell '18)
 + [Suggesting Valid Hole Fits for Typed-Holes in Haskell](https://mpg.is/papers/gissurarson2018suggesting-msc.pdf)
 
-(Master's thesis )
+  (Master's thesis )
 
 Other media
 ----

@@ -24,4 +24,4 @@ Other media
 ### [🐦 Twitter](https://twitter.com/tritlo)
 ### [🐘 Mastodon](https://lodfill.is/web/accounts/107055820573214939)
 ### [🎥 YouTube](https://www.youtube.com/c/Matth%C3%ADasP%C3%A1llGissurarson/featured)
-### [⚗️ Home](https://mpg.is/)
+### [🏠 Home](https://mpg.is/)

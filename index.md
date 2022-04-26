@@ -10,6 +10,6 @@ Posts
 Other media
 ----
 
-### [🐦 Twitter](twitter.com/tritlo)
+### [🐦 Twitter](https://twitter.com/tritlo)
 ### [🎥 YouTube](https://www.youtube.com/c/Matth%C3%ADasP%C3%A1llGissurarson/featured)
 ### [⚗️ Papers](https://mpg.is/)

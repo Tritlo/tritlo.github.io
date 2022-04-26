@@ -9,7 +9,7 @@ A collection of stuff Matti has said. Not much to it yet, but it'll grow!
 
 Posts
 ---
-### [2022-04-26: HPC Traces](/posts/2022/04/26/hpc-traces.html)
+### [2022-04-26: Better errors through HPC traces](/posts/2022/04/26/hpc-traces.html)
 ### [2022-04-26: Revival](/posts/2022/04/26/revival.html)
 
 Papers

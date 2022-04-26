@@ -16,12 +16,12 @@ Papers
   (ICSE '22)
 + [The Hole Story: Type-Directed Synthesis and Repair](https://mpg.is/papers/gissurarson2022licentiate.pdf) [[Talk]](https://youtu.be/AClturcbDOk)
 
- (Licentiate thesis)
+  (Licentiate thesis)
 
 ### 2020
 + [Short Paper: Weak Runtime-Irrelevant Typing for Security](https://mpg.is/papers/gissurarson2020short-paper-weak.pdf) [[Talk]](https://youtu.be/hqrzsj0YcJs)
 
- (PLAS '20)
+  (PLAS '20)
 
 ### 2019
 + [Hole Fit Plugins for GHC (SRC Finalist Poster)](https://mpg.is/papers/gissurarson2019hole.pdf) [[HIW 2019 Talk]](https://mpg.is/papers/gissurarson2019hiw.pdf)

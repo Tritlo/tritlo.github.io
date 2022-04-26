@@ -1,3 +1,10 @@
 theme: jekyll-theme-minimal
 title: Matti says
+logo: /assets/img/logo.png
 description: Matti's thoughts on programming, philosophy and life in general
+author: "Matti"
+timezone: Europe/Stockholm
+highlighter: rouge
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge

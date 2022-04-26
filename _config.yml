@@ -2,8 +2,9 @@ theme: jekyll-theme-minimal
 title: Matti says
 logo: /assets/img/logo.png
 description: Matti's thoughts on programming, philosophy and life in general
-author: Matti
-username: tritlo
+author:
+  name: Matti
+  twitter: tritlo
 timezone: Europe/Stockholm
 highlighter: rouge
 kramdown:

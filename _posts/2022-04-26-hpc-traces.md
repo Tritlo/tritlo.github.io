@@ -3,6 +3,7 @@ layout: post
 title: "HPC Traces"
 date: 2022-04-26 22:49:00 +0200
 categories: posts
+image: /assets/img/logo.png
 tags: programming haskell GHC
 ---
 

@@ -24,8 +24,4 @@ Papers
 
 Other media
 ----
-
-### [🐦 Twitter](https://twitter.com/tritlo)
-### [🐘 Mastodon](https://lodfill.is/web/accounts/107055820573214939)
-### [🎥 YouTube](https://www.youtube.com/c/Matth%C3%ADasP%C3%A1llGissurarson/featured)
-### [🏠 Home](https://mpg.is/)
+[🐦 Twitter](https://twitter.com/tritlo)  |  [🐘 Mastodon](https://lodfill.is/web/accounts/107055820573214939)  |  [🎥 YouTube](https://www.youtube.com/c/Matth%C3%ADasP%C3%A1llGissurarson/featured)  | [📸 Instagram](https://www.instagram.com/tritlo/)  |  [🏠 Home](https://mpg.is/)

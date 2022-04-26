@@ -33,7 +33,7 @@ Papers
   [[Slides]](https://mpg.is/papers/gissurarson2018suggesting-talk.pdf)
   (Haskell '18)
 + [Suggesting Valid Hole Fits for Typed-Holes in Haskell](https://mpg.is/papers/gissurarson2018suggesting-msc.pdf)
-  (Master's thesis )
+  (Master's thesis)
 
 Other media
 ----

@@ -7,8 +7,8 @@ image: /assets/img/logo.png
 tags: programming haskell GHC
 ---
 
-I'm currently trying to implement a cute idea I had: getting a trace of
-recently evaluated expressions from a program.
+I'm currently implementng a cute idea I had: getting a trace of recently
+evaluated expressions from a program.
 
 The Problem
 ---
@@ -213,7 +213,11 @@ actual use cases including fault-localization for
 [PropR](https://github.com/Tritlo/PropR) and other tools that need to know how
 things happened rather than just what happend. 
 
-If you want to play around with it, have a look at the 
-[branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks).
+Future work
+---
+
+There's some cleaning up to be done, as well as making the HPC libraries play
+nicely with the new data-structure. If you want to play around with it, have a
+look at the [branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks).
 Enjoy!
 

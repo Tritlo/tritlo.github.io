@@ -7,7 +7,7 @@ image: /assets/img/logo.png
 tags: programming haskell GHC
 ---
 
-I'm currently implementng a cute idea I had: getting a trace of recently
+I'm currently implementing a cute idea I had: getting a trace of recently
 evaluated expressions from a program.
 
 The Problem

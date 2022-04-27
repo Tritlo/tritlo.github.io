@@ -215,8 +215,10 @@ things happened rather than just what happend.
 
 ### Future work
 
-There's some cleaning up to be done, as well as making the HPC libraries play
-nicely with the new data-structure. If you want to play around with it, have a
+The proof-of-concept works, but there's some cleaning up to be done.
+I need to make the HPC libraries play nicely with the new data-structure,
+and there's also some potential issues with multi-threading (but I think that
+holds for HPC as well).  If you want to play around with it, have a
 look at the [branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks).
 Enjoy!
 

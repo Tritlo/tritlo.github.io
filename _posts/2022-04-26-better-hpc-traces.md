@@ -57,10 +57,10 @@ immediately prior.
 
 The idea is to extend HPC with a "trace" data structure that's simply an
 array that keeps track of which expression was evaluated, and an index
-that goes in circles around the array. This way we can track e.g. the 100
-(configureable) most recently evaluated expressions, and when the crash)
+that goes in circles around the array. This way we can track e.g. the 20
+(configureable) most recently evaluated expressions, and when the crash
 happens we make sure to dump this trace into a file. We can then read
-the dump and see, a-ha!, `xs` was being evaluated! This can help us
+the dump and see, a-ha!, `go` was being evaluated! This can help us
 track down the source of the error more easily than just keeping track
 of what was evaluated, and can be very helpful for tools like
 [PropR](https://github.com/Tritlo/PropR).
@@ -75,7 +75,7 @@ of the heavy work when implementing HPC, so all *we* need to to is to
 piggyback on top of their implementation.
 
 To keep as much in line with HPC, we simply add two arrays, 
-`HpcTraceLabel` to keep track of the data and a `HpcTraceInfo` which contains
+`HpcTraceLabel` to keep track of the data and a `HpcTraceInfoLabel` which contains
 two fields: the next index in `HpcTraceLabel` we want to update, and the size
 of the trace (so we can loop around when we've reached the end). 
 

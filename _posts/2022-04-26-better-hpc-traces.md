@@ -128,10 +128,11 @@ main = putStrLn "hello, world!"
 ```
 
 Using the freshly-built GHC and running:
-```shell
-[nix-shell:~/Code/ghc]$ _build/stage1/bin/ghc -o hello Hello.hs -fhpc -hpc-trace5 && ./hello && cat hello.tix
-```
 
+```shell
+[nix-shell:~/Code/ghc]$ _build/stage1/bin/ghc -o hello Hello.hs -fhpc -hpc-trace5
+[nix-shell:~/Code/ghc]$ ./hello && cat hello.tix
+```
 we get the expected `"hello, world!"` as output, but if we look at the `.tix`
 file:
 
@@ -142,7 +143,10 @@ Tix [ TixModule "Main" 2820138512 3 [1,1,1] [3,5] [2,1,0,0,0]]
 If we then look at the `.mix` file:
 
 ```haskell
-Mix "Hello.hs" 2022-04-27 01:15:00.969319804 UTC 1551044087 8 [(3:17-3:31,ExpBox False),(3:8-3:31,ExpBox False),(3:1-3:31,TopLevelBox ["main"])]
+Mix "Hello.hs" 2022-04-27 01:15:00.969319804 UTC 1551044087 8
+    [(3:17-3:31,ExpBox False),
+     (3:8-3:31,ExpBox False),
+     (3:1-3:31,TopLevelBox ["main"])]
 ```
 
 We see that this corresponds to evaluating `main` (3:1-31), which demands

@@ -70,3 +70,5 @@ Unfortunately, I'm still hacking it together and don't have any results to show
 yet... running a compiled program with the change gives a segmentation fault 😅😅😅.
 Hopefully I'll get it working soon, here's the [WIP branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks)
 (not on GitLab yet, it would be too awkward 😅). Until next time!
+
+Update 2022-04-27: we now get the initial zeroes out, but still segfaulting on trying to do the actual updates.

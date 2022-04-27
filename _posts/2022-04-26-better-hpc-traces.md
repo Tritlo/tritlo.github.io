@@ -37,32 +37,28 @@ But GHC will complain with
 *** Exception: Prelude.head: empty list
 ```
 
-and even with a stack trace it doesn't really tell you anything!
-
-However, to find the bug it would be really useful to know: what was evaluated
+and even with a stack trace it doesn't really tell you much. To find the bug it would be more useful to know: what was evaluated
 right before the error occurred?
 
 ### Background
 
 With Haskell Program Coverage (HPC), GHC allows us to track which
 expressions were evaluated during the course of the program: whenever an
-expression is evaluated, it bumps a number in an array (a "tick") and at
-the end you can read out how many times each expression was evaluated.
+expression is evaluated, it bumps a number in an array (a "tick"). At
+the end of execution you can then read out how many times each expression was evaluated.
 
-That doesn't really help us so much here though, we might encounter the
-error after a long execution, and we really only want to know what happened
-immediately prior.
+That doesn't really help us here though, we might encounter the
+error after a long execution, but we want to know what happened immediately prior.
 
 ### The Idea
 
 The idea is to extend HPC with a "trace" data structure that's simply an
-array that keeps track of which expression was evaluated, and an index
+array that keeps track of which expression was evaluated, and an running index
 that goes in circles around the array. This way we can track e.g. the 20
 (configureable) most recently evaluated expressions, and when the crash
-happens we make sure to dump this trace into a file. We can then read
-the dump and see, a-ha!, `go` was being evaluated! This can help us
+happens we dump this trace into a file. We can then read the resulting and see, a-ha!, `go` was being evaluated! This can help us
 track down the source of the error more easily than just keeping track
-of what was evaluated, and can be very helpful for tools like
+of everything that was evaluated, and can be very helpful for tools like
 [PropR](https://github.com/Tritlo/PropR).
 
 The Implementation
@@ -152,7 +148,7 @@ evaluating `"hello, world!"` (3:17-31). Exactly what we wanted!
 ### Error cases
 But what about our original purpose to find where errors occur? Let's try it!
 
-Here's our `Error.hs` program from before:
+Here's our error program from before:
 
 ```haskell
 go :: Int -> [Int]
@@ -163,7 +159,7 @@ main = print (head $ go 0)
 ```
 
 Now, we run it with our improved trace, and get (as before) an error that just
-points out the consumer:
+points out the *consumer*:
 
 ```text
 error: Prelude.head: empty list
@@ -185,8 +181,7 @@ Tix [ TixModule "Main" 1224276158 12
 
 It works! We can see that it was evaluating the `go` function *right before*
 the error, with the last thing being evaluated being the empty list!
-A lot more useful than just knowing how many times each expression was
-evaluated, eh?
+A lot more useful to know the *producer* of the bad data than just knowing how many times each expression was evaluated, eh?
 
 ### Addendum
 There is some weird behavior when running it multiple times: it will reload the

@@ -3,5 +3,5 @@
 
 @import "{{ site.theme }}";
 
-section { width: 700px; float: right; padding-bottom: 50px;}
-.wrapper { width: 1060px; margin: 0 auto;}
+@media print, screen and (min-width: 1060px) section  { width: 700px;}
+@media print, screen and (min-width: 1060px) .wrapper { width: 1060px;}

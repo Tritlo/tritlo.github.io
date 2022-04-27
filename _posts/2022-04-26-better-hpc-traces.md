@@ -42,8 +42,7 @@ and even with a stack trace it doesn't really tell you anything!
 However, to find the bug it would be really useful to know: what was evaluated
 right before the error occurred?
 
-The Background
----
+### Background
 
 With Haskell Program Coverage (HPC), GHC allows us to track which
 expressions were evaluated during the course of the program: whenever an
@@ -54,8 +53,7 @@ That doesn't really help us so much here though, we might encounter the
 error after a long execution, and we really only want to know what happened
 immediately prior.
 
-The Idea
----
+### The Idea
 
 The idea is to extend HPC with a "trace" data structure that's simply an
 array that keeps track of which expression was evaluated, and an index
@@ -201,9 +199,11 @@ Tix [ TixModule "Main" 2820138512 3 [2,2,2] [1,5] [0,1,0,2,1]]
 But this is consistent with HPCs continuously bumping the ticks (see the first
 part of the data).
 
-
-The Experience
+Conclusion
 ---
+
+### The Experience
+
 All-in-all, implementing this feature was a fun experience, and gave me a few
 insights into how code generation and the RTS works in general. I hope there's
 nterest in adding this to mainline GHC, but it might be hard to sell.
@@ -213,8 +213,7 @@ actual use cases including fault-localization for
 [PropR](https://github.com/Tritlo/PropR) and other tools that need to know how
 things happened rather than just what happend. 
 
-Future work
----
+### Future work
 
 There's some cleaning up to be done, as well as making the HPC libraries play
 nicely with the new data-structure. If you want to play around with it, have a

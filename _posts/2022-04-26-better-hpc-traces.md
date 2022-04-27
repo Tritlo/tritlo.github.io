@@ -185,7 +185,7 @@ A lot more useful to know the *producer* of the bad data than just knowing how m
 
 ### Addendum
 There is some weird behavior when running it multiple times: it will reload the
-old data before starting up, giving (for the `./hello` case`):
+old data before starting up, giving (for the `./hello` case):
 
 ```text
 Tix [ TixModule "Main" 2820138512 3 [2,2,2] [1,5] [0,1,0,2,1]]
@@ -201,7 +201,7 @@ Conclusion
 
 All-in-all, implementing this feature was a fun experience, and gave me a few
 insights into how code generation and the RTS works in general. I hope there's
-nterest in adding this to mainline GHC, but it might be hard to sell.
+interest in adding this to mainline GHC, but it might be hard to sell.
 We're modifying the runtime semantics when HPC is enabled, i.e. evaluating an
 expression now not only bumps the tick but also this list. But I know of a few
 actual use cases including fault-localization for

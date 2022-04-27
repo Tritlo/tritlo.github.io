@@ -7,7 +7,8 @@ image: /assets/img/logo.png
 tags: programming haskell GHC
 ---
 
-I'm currently trying to implement a cute idea I had: getting a trace of recently evaluated expressions from a program.
+I'm currently trying to implement a cute idea I had: getting a trace of
+recently evaluated expressions from a program.
 
 The Problem
 ---
@@ -63,7 +64,8 @@ that goes in circles around the array. This way we can track e.g. the 100
 happens we make sure to dump this trace into a file. We can then read
 the dump and see, a-ha!, `xs` was being evaluated! This can help us
 track down the source of the error more easily than just keeping track
-of what was evaluated, and can be very helpful for tools like [PropR](https://github.com/Tritlo/PropR).
+of what was evaluated, and can be very helpful for tools like
+[PropR](https://github.com/Tritlo/PropR).
 
 The Implementation
 ---
@@ -91,9 +93,8 @@ mkTraceBox platform mod n
                   (CmmLit $ CmmLabel $ mkHpcTraceInfoLabel $ mod) 0
     box_to_update = cmmIndexExpr platform W64
                      (CmmLit $ CmmLabel $ mkHpcTraceLabel $ mod)
-                     -- Note: I messed this up originally an forgot the
-                     -- crucial CmmLoad here, meaning it would use `ptr`
-                     -- instead of `&ptr` and segfault.
+        -- Note: I messed this up originally an forgot the crucial CmmLoad
+        -- here, meaning it would use `ptr` instead of `&ptr` and segfault.
                      (CmmLoad index_box b64 NaturallyAligned)
 
 mkTraceBump :: Platform -> Module -> CmmAGraph
@@ -105,10 +106,9 @@ mkTraceBump platform mod
              , CmmLit (CmmInt 1 W64) ])
     rem = (CmmMachOp (MO_S_Rem W64)
              [ add1
-               -- Note: I had the same issue here, a missing load. Took me
-               -- longer to figure out though, since the operation would
-               -- run just fine, except it was modulus some large number
-               -- representing the pointer!
+    -- Note: I had the same issue here, a missing load. Took me longer to
+    -- figure out though, since the operation would run just fine, except it
+    -- was modulus some large number representing the pointer!
              , CmmLoad size_box b64 NaturallyAligned])
     infoLabel = cmmIndex platform W64
                 (CmmLit $ CmmLabel $ mkHpcTraceInfoLabel $ mod)
@@ -122,16 +122,14 @@ The Results
 My go to program when implementing this was a simple "hello, world":
 
 ```haskell
-module Main where
-
 main = putStrLn "hello, world!"
 ```
 
 Using the freshly-built GHC and running:
 
 ```shell
-[nix-shell:~/Code/ghc]$ _build/stage1/bin/ghc -o hello Hello.hs -fhpc -hpc-trace5
-[nix-shell:~/Code/ghc]$ ./hello && cat hello.tix
+$ _build/stage1/bin/ghc -o hello Hello.hs -fhpc -hpc-trace5
+$ ./hello && cat hello.tix
 ```
 we get the expected `"hello, world!"` as output, but if we look at the `.tix`
 file:
@@ -140,12 +138,11 @@ file:
 Tix [ TixModule "Main" 2820138512 3 [1,1,1] [3,5] [2,1,0,0,0]]
 ```
 
-If we then look at the `.mix` file:
+We see that the trace is there! If we then look at the `.mix` file:
 
 ```haskell
 Mix "Hello.hs" 2022-04-27 01:15:00.969319804 UTC 1551044087 8
-    [(3:17-3:31,ExpBox False),
-     (3:8-3:31,ExpBox False),
+    [(3:17-3:31,ExpBox False), (3:8-3:31,ExpBox False),
      (3:1-3:31,TopLevelBox ["main"])]
 ```
 
@@ -160,8 +157,6 @@ But what about our original purpose to find where errors occur? Let's try it!
 Here's our `Error.hs` program from before:
 
 ```haskell
-module Main where
-
 go :: Int -> [Int]
 go 2 = []
 go n = go (n+1)
@@ -187,11 +182,13 @@ But if we look at the `.tix` file:
 Tix [ TixModule "Main" 1224276158 12
       [1,2,2,2,2,3,1,1,1,1,1,1] [18,20]
       [11,10,9,6,8,5,7,4,5,3,1,2,4,5,3,1,2,0,0,0]]
+    --                                       ^ 18
 ```
 
-It works! We can see that *right before* the error, it was evaluating the
-`go` function! A lot more useful than just knowing how many times each
-expression was evaluated, eh?
+It works! We can see that it was evaluating the `go` function *right before*
+the error, with the last thing being evaluated being the empty list!
+A lot more useful than just knowing how many times each expression was
+evaluated, eh?
 
 ### Addendum
 There is some weird behavior when running it multiple times: it will reload the
@@ -208,10 +205,15 @@ part of the data).
 The Experience
 ---
 All-in-all, implementing this feature was a fun experience, and gave me a few
-insights into how code generation and the RTS works in general. I'll see if
-there's any interest in adding this to mainline GHC, but I'm slightly worried
-that it might change the spec (we are doing different operations at runtime,
-after all). But I'll certainly keep it around for experiments!
-If you want to play around with it, here's the [branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks).
+insights into how code generation and the RTS works in general. I hope there's
+nterest in adding this to mainline GHC, but it might be hard to sell.
+We're modifying the runtime semantics when HPC is enabled, i.e. evaluating an
+expression now not only bumps the tick but also this list. But I know of a few
+actual use cases including fault-localization for
+[PropR](https://github.com/Tritlo/PropR) and other tools that need to know how
+things happened rather than just what happend. 
+
+If you want to play around with it, have a look at the 
+[branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks).
 Enjoy!
 

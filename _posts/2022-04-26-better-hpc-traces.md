@@ -217,3 +217,20 @@ holds for HPC as well).  If you want to play around with it, have a
 look at the [branch on GitHub](https://github.com/Tritlo/ghc/tree/extended-ticks).
 Enjoy!
 
+
+Update 2022-05-04
+---
+
+After some wrangling with `base`, I've got it working with the default error
+messages! 
+
+![image](https://user-images.githubusercontent.com/1667287/166701226-7350268d-381d-48c1-b9b3-870ef844eba2.png)
+
+As you can see in the picture above, it now adds a `Recently evaluated locations (from HPC)` part that reads
+out the current internal `HpcModuleInfo` state and prints out the trace when an error occurs. This shows us
+that we were evaluating the `[]`, `1`, and `n` right before the crash, so we now know what case is causing
+the empty list. Pretty neat!
+
+If you want to try it out you'll need to do a fresh clone though, because the
+`libraries/hpc` is updated (or a `git submodule update --init --recursive`, if it works).
+

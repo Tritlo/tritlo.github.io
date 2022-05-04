@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Better Errors Through HPC Traces"
+title: "Better Errors Through HPC Traces [Updated]"
 date: 2022-04-26 22:49:00 +0200
 categories: posts
 image: /assets/img/logo.png
